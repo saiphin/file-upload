@@ -1,0 +1,27 @@
+{
+  "name": "file-upload",
+  "version": "1.0.0",
+  "description": "Package Upload and resize file image",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saiphin/file-upload.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saiphin/file-upload/issues"
+  },
+  "homepage": "https://github.com/saiphin/file-upload#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.10",
+    "file-upload-resize": "^1.0.1",
+    "make-dir": "^3.1.0",
+    "nodemon": "^2.0.4",
+    "sharp": "^0.25.4"
+  }
+}

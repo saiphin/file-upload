@@ -1,0 +1,24 @@
+{
+  "name": "file-upload-resize",
+  "version": "1.0.3",
+  "description": "upload and resize multi file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saiphin/file-upload.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saiphin/file-upload/issues"
+  },
+  "homepage": "https://github.com/saiphin/file-upload#readme",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express-fileupload": "^1.1.10",
+    "make-dir": "^3.1.0",
+    "sharp": "^0.25.4"
+  }
+}
