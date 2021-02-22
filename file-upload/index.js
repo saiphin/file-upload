@@ -1,23 +1,29 @@
 const makeDir = require("make-dir");
 const fs = require("fs");
 const sharp = require("sharp");
+module.exports.useUpload = require("express-fileupload");
+module.exports.path = require("path");
 
 // Update Product
-module.exports.upload_file = async (dir, files, size) => {
+module.exports.upload_file = async (dir, files, size, fileType) => {
   try {
+    const type =
+      fileType === undefined || fileType === null
+        ? ".jpg"
+        : "." + fileType.toLowerCase();
     var files_img = files.data === undefined ? files : [files];
     await makeDir(dir);
 
     if (!size || size.length === 0) {
     } else {
       var paths = await Promise.all(
-        size.map((data) => makeDir(dir + "/resize/" + data + "x" + data))
+        size.map((data) => makeDir(dir + "/resize/" + data[0] + "x" + data[1]))
       );
     }
     //   Write File
     var img_name = [];
     for (var i = 0; i < files_img.length; i++) {
-      var newName = Date.now() + i + ".jpg";
+      var newName = Date.now() + i + type;
       let data = await new Promise(async function (resolve, reject) {
         fs.writeFile(dir + "/" + newName, files_img[i].data, (err) => {
           if (err) {
@@ -56,7 +62,7 @@ const resize = async (dir, paths, newName, size) => {
         });
       paths.map((path, index) => {
         sharp(dir + "/" + img_name)
-          .resize(size[index], size[index])
+          .resize(size[index][0], size[index][1])
           .jpeg({ quality: 50, progressive: true })
           .toBuffer()
           .then((data) => {
