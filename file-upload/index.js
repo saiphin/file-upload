@@ -5,7 +5,7 @@ module.exports.useUpload = require("express-fileupload");
 module.exports.path = require("path");
 
 // Update Product
-module.exports.upload_file = async (dir, files, size, fileType) => {
+module.exports.upload = async (dir, files, size, fileType) => {
   try {
     const type =
       fileType === undefined || fileType === null

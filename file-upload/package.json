@@ -1,6 +1,6 @@
 {
   "name": "file-upload-resize",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "upload and resize multi file",
   "main": "index.js",
   "scripts": {
